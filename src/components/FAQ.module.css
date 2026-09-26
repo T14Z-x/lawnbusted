@@ -1,0 +1,145 @@
+/* FAQ — White background */
+.section {
+  padding: var(--section-py) 0;
+  background: var(--white);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+/* ── Left sticky column ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 96px;
+}
+
+.desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.contactCard {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+}
+
+.contactTitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--forest-900);
+  margin-bottom: 0.25rem;
+}
+
+.contactSub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.contactButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Accordion ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.item {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--off-white);
+  transition:
+    border-color var(--duration-base) var(--ease),
+    background var(--duration-base) var(--ease),
+    box-shadow var(--duration-base) var(--ease);
+}
+
+.itemOpen {
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: 0 4px 16px rgba(11, 25, 16, 0.04);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.questionText {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--forest-900);
+  letter-spacing: -0.01em;
+}
+
+.chevron {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease),
+              background var(--duration-fast) var(--ease),
+              border-color var(--duration-fast) var(--ease);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.answer {
+  padding: 0 1.5rem 1.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  animation: fadeInScale 0.2s var(--ease);
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 3rem; }
+  .left { position: static; }
+}

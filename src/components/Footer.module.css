@@ -1,0 +1,178 @@
+/* Footer — darkest forest (deepest 30% element) */
+.footer {
+  background: var(--forest-950);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 5.5rem 0 2.5rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.9fr 1fr 1fr 1.25fr;
+  gap: 3.5rem;
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ── Brand column ── */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: var(--r-full);
+}
+
+.tagline {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 300px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Socials ── */
+.socials { display: flex; gap: 0.65rem; }
+
+.socialLink {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 0;
+  transition:
+    background var(--duration-base) var(--ease),
+    border-color var(--duration-base) var(--ease),
+    color var(--duration-base) var(--ease),
+    transform var(--duration-base) var(--ease);
+}
+.socialLink:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ── Link columns ── */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.colTitle {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.colList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.85rem;
+}
+
+.colList a {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--duration-fast) var(--ease);
+}
+.colList a:hover { color: var(--white); }
+
+/* Muted text for the plain (non-link) rows, e.g. the location.
+   Scoped to direct children so it can't repaint the icon chips nested
+   inside the contact links. */
+.colList > li > span {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hours {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+.hours strong { color: rgba(255, 255, 255, 0.65); font-weight: 600; }
+
+.hoursTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-lt);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+}
+.hoursTitle strong {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+/* ── Large wordmark (decorative) ── */
+.wordmark {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 10.5vw, 8rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.035);
+  padding: 2.5rem 0 0.5rem;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.legal { display: flex; gap: 1.5rem; }
+
+.legal a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color var(--duration-fast) var(--ease);
+}
+.legal a:hover { color: rgba(255, 255, 255, 0.8); }
+
+/* The arrow nudges out on hover — a small "this goes elsewhere" cue. */
+.legal a svg {
+  transition: transform var(--duration-fast) var(--ease);
+}
+.legal a:hover svg { transform: translate(1px, -1px); }
+
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 580px) {
+  .top { grid-template-columns: 1fr; }
+  .bottom { flex-direction: column; align-items: flex-start; }
+}

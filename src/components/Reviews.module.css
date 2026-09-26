@@ -1,0 +1,236 @@
+/* Reviews — Off-white with top+bottom border for visual separation */
+.section {
+  padding: var(--section-py) 0;
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Section header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Rating summary (right side) ── */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.scoreNum {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--forest-900);
+  letter-spacing: -0.02em;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+/* Inline star sitting inside the platform line ("4.9 ★ BBB") */
+.inlineStar {
+  color: var(--gold);
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 0 0.1rem;
+}
+
+.scoreCount {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.platforms {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--forest-600);
+  flex-wrap: wrap;
+}
+
+.platformItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ── Filter Row ── */
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 0.5rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--forest-800);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease);
+}
+
+.filterBtn:hover {
+  border-color: var(--accent);
+  background: var(--off-white);
+}
+
+/* Pressed — flashes the same green the hover promises, so a click never
+   drops back to a neutral grey. The selected pill is excluded below so its
+   solid fill can't wash out mid-click. */
+.filterBtn:not(.filterBtnActive):active {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  transform: scale(0.98);
+}
+
+/* Selected — solid accent. The hover already turns the pill green, so the
+   chosen one simply holds that green instead of switching to forest-900
+   (which read as "disabled" next to a green hover). */
+.filterBtnActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+/* Must out-rank .filterBtn:hover, which would otherwise repaint it off-white */
+.filterBtnActive:hover {
+  background: var(--accent-dk);
+  border-color: var(--accent-dk);
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color var(--duration-base) var(--ease),
+              transform var(--duration-fast) var(--ease),
+              box-shadow var(--duration-fast) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 25, 16, 0.04);
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.reviewTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-dk);
+  background: var(--accent-bg);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--r-full);
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--forest-600);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--forest-900);
+  letter-spacing: -0.01em;
+}
+
+.location {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--forest-600);
+}
+
+.meta {
+  font-size: 0.7rem;
+  color: var(--text-subtle);
+  margin-top: 0.05rem;
+}
+
+.text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .grid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; align-items: flex-start; }
+}

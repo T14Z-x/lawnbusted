@@ -1,0 +1,83 @@
+.floatingBar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(11, 25, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(88, 186, 121, 0.3);
+  border-radius: var(--r-full);
+  padding: 0.4rem 0.5rem 0.4rem 0.6rem;
+  box-shadow: 0 10px 30px rgba(5, 14, 8, 0.35);
+  animation: fadeInScale 0.3s var(--ease);
+}
+
+.phoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--r-full);
+  transition: color var(--duration-fast) var(--ease),
+    background var(--duration-fast) var(--ease);
+}
+.phoneBtn:hover {
+  color: var(--accent-lt);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quoteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--r-full);
+  transition: background var(--duration-fast) var(--ease),
+              transform var(--duration-fast) var(--ease);
+}
+.quoteBtn:hover {
+  background: var(--accent-dk);
+  transform: translateY(-1px);
+}
+.quoteBtn:active {
+  transform: scale(0.96);
+}
+
+.topBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease);
+}
+.topBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 540px) {
+  .floatingBar {
+    bottom: 16px;
+    right: 16px;
+    padding: 0.35rem 0.45rem;
+  }
+  .phoneText {
+    display: none;
+  }
+}
